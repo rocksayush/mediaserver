@@ -81,27 +81,12 @@ echo && echo " ${BLUE}Media Server Installation Srcipt${NORMAL} by ${RED}Roshanc
 3.${GREEN}Setting Up Jellyfin with Gdrive${NORMAL}
 ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
 69.${PURPLE}Exit${NORMAL}" && echo
-read -p " Choose any Number [1-3]:" option
 
-case "$option" in
-1)
-    rclone
-    mount
-    plex
-    ;;
-2)
-    rclone
-    mount
-    emby
-    ;;
-3)
+
     rclone
     mount
     jellyfin	
     ;;	
-69)
-    exit
-    ;;
 *)
     echo
     echo " ${RED}Choose Correct Number from the Options${NORMAL}"
