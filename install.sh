@@ -18,17 +18,17 @@ PURPLE="${COLOR}1;35m"
 
 # ★★★Installation of Rclone and Creating a remote★★★
 rclone() {
-  curl https://rclone.org/install.sh | sudo bash
-  sudo apt update && sudo apt install fuse
-  sudo sed -i '/#user/s/#//g' /etc/fuse.conf
-  sudo mkdir /mnt/media
-  sudo rclone config
+  curl https://rclone.org/install.sh | bash
+  apt update && sudo apt install fuse
+  sed -i '/#user/s/#//g' /etc/fuse.conf
+  mkdir /mnt/media
+  clone config
 }
 # ★★★Mounting using rclone★★★
 mount() {
   echo "Provide your remote name you configured in rclone\n"
   read remote
-  sudo rclone mount "$remote": /mnt/media --allow-other --allow-non-empty --vfs-cache-mode writes &
+  rclone mount "$remote": /mnt/media --allow-other --allow-non-empty --vfs-cache-mode writes &
   crontab -l > mycron
   echo "@reboot sudo rclone mount "$remote": /mnt/media --allow-other --allow-non-empty --vfs-cache-mode writes &" >> mycron
   #install new cron file
@@ -85,9 +85,8 @@ echo && echo " ${BLUE}Media Server Installation Srcipt${NORMAL} by ${RED}Roshanc
 
     rclone
     mount
-    jellyfin	
+    #jellyfin	
     ;;	
-*)
     echo
     echo " ${RED}Choose Correct Number from the Options${NORMAL}"
     ;;
