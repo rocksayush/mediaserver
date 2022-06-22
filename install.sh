@@ -18,6 +18,7 @@ PURPLE="${COLOR}1;35m"
 
 # ★★★Installation of Rclone and Creating a remote★★★
 rclone() {
+  apt-get install curl
   curl https://rclone.org/install.sh | bash
   apt update && sudo apt install fuse
   sed -i '/#user/s/#//g' /etc/fuse.conf
@@ -36,9 +37,7 @@ mount() {
   rm mycron
 } 
 
-    rclone
-    mount
-    #jellyfin	
-    ;;	
-esac 
+rclone
+mount
+
   
